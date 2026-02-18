@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 150 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 25% 15%;
+    --primary: 155 35% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 40% 60%;
+    --secondary-foreground: 150 25% 15%;
+    --muted: 150 20% 95%;
+    --muted-foreground: 150 10% 45%;
+    --accent: 45 40% 60%;
+    --accent-foreground: 150 25% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 150 15% 88%;
+    --input: 150 15% 88%;
+    --ring: 155 35% 26%;
+    --radius: 0.5rem;
+    
+    /* Custom Theme Colors */
+    --cc-green: #2D5A4A;
+    --cc-green-light: #7CB69D;
+    --cc-green-dark: #1E3D31;
+    --cc-gold: #C9A86A;
+    --cc-gold-light: #D4B87A;
+    --cc-gold-dark: #A88B4A;
+    --cc-cream: #F8F6F1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* Custom scrollbar - Green & Gold Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F6F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2D5A4A 0%, #7CB69D 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1E3D31 0%, #2D5A4A 100%);
+}
+
+/* Selection color - Green & Gold */
+::selection {
+  background: rgba(124, 182, 157, 0.3);
+  color: #2D5A4A;
+}
+
+/* Animation utilities */
+.animate-in {
+  animation: animateIn 0.6s ease-out forwards;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Focus styles - Green theme */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(45, 90, 74, 0.2);
+}
+
+/* Button hover lift effect */
+.btn-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image hover zoom */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Gradient text - Green & Gold */
+.gradient-text {
+  background: linear-gradient(135deg, #2D5A4A 0%, #7CB69D 50%, #C9A86A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold gradient text */
+.gradient-gold {
+  background: linear-gradient(135deg, #C9A86A 0%, #D4B87A 50%, #A88B4A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Custom slider styling - Green theme */
+[data-slot="slider-track"] {
+  background: #e8f0ec !important;
+}
+
+[data-slot="slider-range"] {
+  background: linear-gradient(90deg, #2D5A4A 0%, #7CB69D 100%) !important;
+}
+
+[data-slot="slider-thumb"] {
+  border-color: #2D5A4A !important;
+  background: #2D5A4A !important;
+}
+
+/* Gold border glow */
+.gold-glow {
+  box-shadow: 0 0 15px rgba(201, 168, 106, 0.4);
+}
+
+/* Green border glow */
+.green-glow {
+  box-shadow: 0 0 15px rgba(124, 182, 157, 0.4);
+}
+
+/* Elegant button styles */
+.btn-primary-green {
+  background: linear-gradient(135deg, #2D5A4A 0%, #3D7A64 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-green:hover {
+  background: linear-gradient(135deg, #1E3D31 0%, #2D5A4A 100%);
+  box-shadow: 0 4px 15px rgba(45, 90, 74, 0.3);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #C9A86A 0%, #D4B87A 100%);
+  color: #1E3D31;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #A88B4A 0%, #C9A86A 100%);
+  box-shadow: 0 4px 15px rgba(201, 168, 106, 0.3);
+}
+
+/* Card hover with green accent */
+.card-hover-green {
+  transition: all 0.3s ease;
+}
+
+.card-hover-green:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(45, 90, 74, 0.15);
+}
+
+/* Shimmer effect for loading */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
