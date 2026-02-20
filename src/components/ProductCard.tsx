@@ -1,12 +1,17 @@
-import { useState } from 'react';
-import { Heart, ShoppingBag, Star, Eye } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
-import { useCart } from '../context/CartContext';
-import type { Product } from '../data/products';
+import { useState } from "react";
+import { Heart, ShoppingBag, Star, Eye } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import { useCart } from "../context/CartContext";
+import type { Product } from "../data/products";
 
 interface ProductCardProps {
   product: Product;
@@ -20,9 +25,9 @@ export function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
       maximumFractionDigits: 0,
     }).format(price);
   };
@@ -40,8 +45,10 @@ export function ProductCard({ product }: ProductCardProps) {
     setIsQuickViewOpen(false);
   };
 
-  const discount = product.originalPrice 
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+  const discount = product.originalPrice
+    ? Math.round(
+        ((product.originalPrice - product.price) / product.originalPrice) * 100
+      )
     : null;
 
   return (
@@ -54,17 +61,20 @@ export function ProductCard({ product }: ProductCardProps) {
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          
+
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-2">
             {product.tags.slice(0, 2).map((tag) => (
-              <Badge 
-                key={tag} 
+              <Badge
+                key={tag}
                 className={`text-xs font-medium ${
-                  tag === 'Bestseller' ? 'bg-[#C9A86A] text-[#1E3D31]' :
-                  tag === 'New Arrival' ? 'bg-[#2D5A4A] text-white' :
-                  tag === 'Sale' ? 'bg-red-500 text-white' :
-                  'bg-[#7CB69D] text-[#1E3D31]'
+                  tag === "Bestseller"
+                    ? "bg-[#C9A86A] text-[#1E3D31]"
+                    : tag === "New Arrival"
+                    ? "bg-[#2D5A4A] text-white"
+                    : tag === "Sale"
+                    ? "bg-red-500 text-white"
+                    : "bg-[#7CB69D] text-[#1E3D31]"
                 }`}
               >
                 {tag}
@@ -82,8 +92,10 @@ export function ProductCard({ product }: ProductCardProps) {
             onClick={() => setIsWishlisted(!isWishlisted)}
             className="absolute top-3 right-3 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all hover:bg-[#7CB69D]/10"
           >
-            <Heart 
-              className={`h-4 w-4 transition-colors ${isWishlisted ? 'fill-[#2D5A4A] text-[#2D5A4A]' : 'text-gray-600'}`} 
+            <Heart
+              className={`h-4 w-4 transition-colors ${
+                isWishlisted ? "fill-[#2D5A4A] text-[#2D5A4A]" : "text-gray-600"
+              }`}
             />
           </button>
 
@@ -112,12 +124,12 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Product Info */}
         <div className="p-4">
           <p className="text-xs text-[#7CB69D] uppercase tracking-wide mb-1">
-            {product.category === 'saree' ? 'Saree' : 'Kurti'}
+            {product.category === "saree" ? "Saree" : "Kurti"}
           </p>
           <h3 className="font-medium text-gray-900 mb-1 line-clamp-1 group-hover:text-[#2D5A4A] transition-colors">
             {product.name}
           </h3>
-          
+
           {/* Rating */}
           <div className="flex items-center gap-1 mb-2">
             <Star className="h-3.5 w-3.5 fill-[#C9A86A] text-[#C9A86A]" />
@@ -141,14 +153,14 @@ export function ProductCard({ product }: ProductCardProps) {
 
       {/* Quick View Dialog */}
       <Dialog open={isQuickViewOpen} onOpenChange={setIsQuickViewOpen}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-0">
+        <DialogContent className="max-w-3xl p-0 ">
+          <div className="grid md:grid-cols-2 items-start">
             {/* Image */}
-            <div className="aspect-square bg-gray-100">
+            <div className="bg-[#f8f6f1] flex items-center justify-center p-6">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="max-h-[70vh] w-auto object-contain"
               />
             </div>
 
@@ -156,7 +168,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <div className="p-6 flex flex-col">
               <DialogHeader>
                 <p className="text-sm text-[#7CB69D] uppercase tracking-wide mb-1">
-                  {product.category === 'saree' ? 'Saree' : 'Kurti'}
+                  {product.category === "saree" ? "Saree" : "Kurti"}
                 </p>
                 <DialogTitle className="text-2xl font-semibold text-gray-900">
                   {product.name}
@@ -166,10 +178,12 @@ export function ProductCard({ product }: ProductCardProps) {
               <div className="flex items-center gap-2 my-3">
                 <Star className="h-4 w-4 fill-[#C9A86A] text-[#C9A86A]" />
                 <span className="text-gray-600">{product.rating}</span>
-                <span className="text-gray-400">({product.reviews} reviews)</span>
+                <span className="text-gray-400">
+                  ({product.reviews} reviews)
+                </span>
               </div>
 
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="text-2xl font-bold text-[#2D5A4A]">
                   {formatPrice(product.price)}
                 </span>
@@ -195,8 +209,8 @@ export function ProductCard({ product }: ProductCardProps) {
                   <Label className="text-sm font-medium text-gray-700 mb-2 block">
                     Size: {selectedSize}
                   </Label>
-                  <RadioGroup 
-                    value={selectedSize} 
+                  <RadioGroup
+                    value={selectedSize}
                     onValueChange={setSelectedSize}
                     className="flex flex-wrap gap-2"
                   >
@@ -225,8 +239,8 @@ export function ProductCard({ product }: ProductCardProps) {
                   <Label className="text-sm font-medium text-gray-700 mb-2 block">
                     Color: {selectedColor}
                   </Label>
-                  <RadioGroup 
-                    value={selectedColor} 
+                  <RadioGroup
+                    value={selectedColor}
                     onValueChange={setSelectedColor}
                     className="flex flex-wrap gap-2"
                   >
@@ -252,10 +266,12 @@ export function ProductCard({ product }: ProductCardProps) {
               {/* Material & Occasion */}
               <div className="space-y-2 mb-6">
                 <p className="text-sm text-gray-600">
-                  <span className="font-medium">Material:</span> {product.material}
+                  <span className="font-medium">Material:</span>{" "}
+                  {product.material}
                 </p>
                 <p className="text-sm text-gray-600">
-                  <span className="font-medium">Occasion:</span> {product.occasion.join(', ')}
+                  <span className="font-medium">Occasion:</span>{" "}
+                  {product.occasion.join(", ")}
                 </p>
               </div>
 
