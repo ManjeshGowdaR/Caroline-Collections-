@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -26,15 +26,15 @@
     --input: 150 15% 88%;
     --ring: 155 35% 26%;
     --radius: 0.5rem;
-    
+
     /* Custom Theme Colors */
-    --cc-green: #2D5A4A;
-    --cc-green-light: #7CB69D;
-    --cc-green-dark: #1E3D31;
-    --cc-gold: #C9A86A;
-    --cc-gold-light: #D4B87A;
-    --cc-gold-dark: #A88B4A;
-    --cc-cream: #F8F6F1;
+    --cc-green: #2d5a4a;
+    --cc-green-light: #7cb69d;
+    --cc-green-dark: #1e3d31;
+    --cc-gold: #c9a86a;
+    --cc-gold-light: #d4b87a;
+    --cc-gold-dark: #a88b4a;
+    --cc-cream: #f8f6f1;
   }
 }
 
@@ -42,18 +42,23 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
   }
 }
 
@@ -63,22 +68,22 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #F8F6F1;
+  background: #f8f6f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #2D5A4A 0%, #7CB69D 100%);
+  background: linear-gradient(180deg, #2d5a4a 0%, #7cb69d 100%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #1E3D31 0%, #2D5A4A 100%);
+  background: linear-gradient(180deg, #1e3d31 0%, #2d5a4a 100%);
 }
 
 /* Selection color - Green & Gold */
 ::selection {
   background: rgba(124, 182, 157, 0.3);
-  color: #2D5A4A;
+  color: #2d5a4a;
 }
 
 /* Animation utilities */
@@ -120,7 +125,9 @@
 }
 
 /* Focus styles - Green theme */
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(45, 90, 74, 0.2);
 }
@@ -150,7 +157,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Gradient text - Green & Gold */
 .gradient-text {
-  background: linear-gradient(135deg, #2D5A4A 0%, #7CB69D 50%, #C9A86A 100%);
+  background: linear-gradient(135deg, #2d5a4a 0%, #7cb69d 50%, #c9a86a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -158,7 +165,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Gold gradient text */
 .gradient-gold {
-  background: linear-gradient(135deg, #C9A86A 0%, #D4B87A 50%, #A88B4A 100%);
+  background: linear-gradient(135deg, #c9a86a 0%, #d4b87a 50%, #a88b4a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -177,12 +184,12 @@ input:focus, textarea:focus, select:focus {
 }
 
 [data-slot="slider-range"] {
-  background: linear-gradient(90deg, #2D5A4A 0%, #7CB69D 100%) !important;
+  background: linear-gradient(90deg, #2d5a4a 0%, #7cb69d 100%) !important;
 }
 
 [data-slot="slider-thumb"] {
-  border-color: #2D5A4A !important;
-  background: #2D5A4A !important;
+  border-color: #2d5a4a !important;
+  background: #2d5a4a !important;
 }
 
 /* Gold border glow */
@@ -197,24 +204,33 @@ input:focus, textarea:focus, select:focus {
 
 /* Elegant button styles */
 .btn-primary-green {
-  background: linear-gradient(135deg, #2D5A4A 0%, #3D7A64 100%);
+  background: linear-gradient(135deg, #2d5a4a 0%, #3d7a64 100%);
   color: white;
   transition: all 0.3s ease;
 }
 
+/* global.css */
+aside::-webkit-scrollbar {
+  width: 6px;
+}
+aside::-webkit-scrollbar-thumb {
+  background: #c9a86a;
+  border-radius: 10px;
+}
+
 .btn-primary-green:hover {
-  background: linear-gradient(135deg, #1E3D31 0%, #2D5A4A 100%);
+  background: linear-gradient(135deg, #1e3d31 0%, #2d5a4a 100%);
   box-shadow: 0 4px 15px rgba(45, 90, 74, 0.3);
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #C9A86A 0%, #D4B87A 100%);
-  color: #1E3D31;
+  background: linear-gradient(135deg, #c9a86a 0%, #d4b87a 100%);
+  color: #1e3d31;
   transition: all 0.3s ease;
 }
 
 .btn-gold:hover {
-  background: linear-gradient(135deg, #A88B4A 0%, #C9A86A 100%);
+  background: linear-gradient(135deg, #a88b4a 0%, #c9a86a 100%);
   box-shadow: 0 4px 15px rgba(201, 168, 106, 0.3);
 }
 
