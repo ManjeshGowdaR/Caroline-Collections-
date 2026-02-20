@@ -156,7 +156,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <DialogContent className="max-w-3xl p-0 ">
           <div className="grid md:grid-cols-2 items-start">
             {/* Image */}
-            <div className="bg-[#f8f6f1] flex items-center justify-center p-6">
+            <div className="bg-[#f8f6f1] flex items-center justify-center p-4 min-h-[260px] md:min-h-0">
               <img
                 src={product.image}
                 alt={product.name}
