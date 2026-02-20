@@ -185,7 +185,7 @@ export function Home() {
               <img
                 src="/images/saree-1.jpg"
                 alt="Sarees Collection"
-                className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[500px] object-cover object-top group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1E3D31]/90 via-[#1E3D31]/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -213,7 +213,7 @@ export function Home() {
               <img
                 src="/images/kurti-3.jpg"
                 alt="Kurtis Collection"
-                className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[500px] object-cover object-top group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1E3D31]/90 via-[#1E3D31]/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
